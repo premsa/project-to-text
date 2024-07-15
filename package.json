@@ -3,7 +3,11 @@
   "displayName": "project-to-text",
   "description": "",
   "version": "0.0.1",
+  "license": "MIT",
   "publisher": "premsa",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/premsa/project-to-text"},
   "engines": {
     "vscode": "^1.91.0"
   },
@@ -15,11 +19,30 @@
   "contributes": {
     "commands": [
       {
-        "command": "project-to-text.helloWorld",
-        "title": "Hello World"
+        "command": "extension.projectToMarkdown",
+        "title": "Project to Markdown"
+      },
+      {
+        "command": "extension.projectToText",
+        "title": "Project to Text"
       }
-    ]
-  },
+    ],
+    "configuration": {
+      "title": "Project to Text/Markdown",
+      "properties": {
+        "projectToText.exclude": {
+          "type": "array",
+          "default": ["node_modules", "\\.git", "\\.vscode"],
+          "description": "Patterns to exclude from the output (uses regular expressions)"
+        },
+        "projectToText.contentExclude": {
+          "type": "array",
+          "default": ["PLACEHOLDER.txt"],
+          "description": "Patterns for files to include in the structure but exclude their content (uses regular expressions)"
+        }
+      }
+    }
+  },  
   "scripts": {
     "vscode:prepublish": "npm run compile",
     "compile": "tsc -p ./",
