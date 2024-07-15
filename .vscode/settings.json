@@ -23,5 +23,7 @@
 		"yarn\\.lock",
 		"large-data-file\\.json",
 		".eslintrc.json",
+		"project-to-text-0.0.1.vsix",
+		"vsc-extension-quickstart.md"
 	]
 }
